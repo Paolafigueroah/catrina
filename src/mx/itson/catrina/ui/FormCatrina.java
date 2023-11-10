@@ -337,8 +337,8 @@ public class FormCatrina extends javax.swing.JFrame {
           lblCurrency.setText(accountState.getCurrency());
           lblAccount.setText(accountState.getAccount());
           
-           lblDeposits.setText(NumberFormat.getCurrencyInstance().format(accountState.getTotalDeposits()));
-           lblWithdrawals.setText(NumberFormat.getCurrencyInstance().format(accountState.getTotalWithdrawals()));
+          lblDeposits.setText(NumberFormat.getCurrencyInstance().format(accountState.getTotalDeposits()));
+          lblWithdrawals.setText(NumberFormat.getCurrencyInstance().format(accountState.getTotalWithdrawals()));
           
          DefaultTableModel table = (DefaultTableModel) tblTransactions.getModel();
          

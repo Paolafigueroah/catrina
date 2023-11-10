@@ -16,7 +16,7 @@ public class AccountStatement {
    private String clabe;
    private String currency;
    private double totalWithdrawals;
-   private double tatalDeposits;
+   private double totalDeposits;
    private double finalBalance;
    
    public AccountStatement deserialize(String json){
@@ -89,15 +89,15 @@ public class AccountStatement {
     /**
      * @return the tatalDeposits
      */
-    public double getTatalDeposits() {
-        return tatalDeposits;
+    public double getTotalDeposits() {
+        return totalDeposits;
     }
 
     /**
      * @param tatalDeposits the tatalDeposits to set
      */
     public void setTatalDeposits(double tatalDeposits) {
-        this.tatalDeposits = tatalDeposits;
+        this.totalDeposits = tatalDeposits;
     }
 
     /**
