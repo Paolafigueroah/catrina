@@ -21,7 +21,7 @@ import mx.itson.catrina.enums.*;
 
 /**
  *
- * @author Paola Figueroa
+ * @author Danett Arana
  */
 public class FormCatrina extends javax.swing.JFrame {
 
@@ -89,6 +89,7 @@ public class FormCatrina extends javax.swing.JFrame {
         });
 
         tblTransactions.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblTransactions.setForeground(new java.awt.Color(0, 102, 51));
         tblTransactions.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -302,8 +303,8 @@ public class FormCatrina extends javax.swing.JFrame {
                     .addComponent(lblFB1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(40, 40, 40)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(lblFinalBalance)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -372,17 +373,26 @@ public class FormCatrina extends javax.swing.JFrame {
         });
        double finalBalance = subTotal;
 
-           lblFinalBalance.setText(numberFormat.format(finalBalance));
+           lblFinalBalance.setText("Final Balance: "+ numberFormat.format(finalBalance));
            lblFB1.setText(numberFormat.format(finalBalance));
     }
      
       
     }
-            lblDeposits.revalidate();
-            lblDeposits.repaint();
+            double totalDeposits = 0;
+           double totalWithdrawals = 0;
 
-            lblWithdrawals.revalidate();
-            lblWithdrawals.repaint();
+          for (Transaction transaction : account.getTransactions()) {
+          if (transaction.getType() == TransactionType.DEPOSIT) {
+           totalDeposits += transaction.getAmount();
+          } else if (transaction.getType() == TransactionType.WITHDRAWALS) {
+        totalWithdrawals += transaction.getAmount();
+    }
+}
+
+
+      lblDeposits.setText( numberFormat.format(totalDeposits));
+      lblWithdrawals.setText(numberFormat.format(totalWithdrawals));
             
        }
             
